@@ -1,0 +1,24 @@
+name: hello-pipeline
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  warmup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Print commit SHA
+        run: echo "Commit SHA = ${GITHUB_SHA}"
+
+      - name: Create warmup artifact
+        run: echo "Hello from run ${GITHUB_RUN_ID}" > hello-NShetty.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hello-NShetty
+          path: hello-NShetty.txt
