@@ -32,7 +32,14 @@ jobs:
         run: terraform validate -no-color
 
       - name: Terraform Plan (save binary)
+        env:
+          AWS_ACCESS_KEY_ID: FAKEKEY
+          AWS_SECRET_ACCESS_KEY: FAKESECRET
+          AWS_DEFAULT_REGION: us-east-1
+          AWS_EC2_METADATA_DISABLED: "true"
         run: terraform plan -no-color -out=tfplan.bin -var="owner=NShetty"
+
+
 
       - name: Terraform Show → plan.txt
         run: terraform show -no-color tfplan.bin | tee plan.txt
