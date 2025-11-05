@@ -9,6 +9,8 @@ jobs:
     permissions:
       contents: read
       id-token: write
+      pull-requests: write
+      issues: write
     defaults:
       run:
         working-directory: infra
