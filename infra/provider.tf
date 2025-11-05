@@ -13,7 +13,7 @@ terraform {
 
 # Configure AWS provider for CI-only plan (no real credentials)
 provider "aws" {
-  region                      = "us-east-1"
+  region = "us-east-1"
 
   # disable all AWS checks
   skip_credentials_validation = true
