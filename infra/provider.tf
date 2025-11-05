@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "aws" {
-  region                      = "us-east-1"
+  region = "us-east-1"
 
   # These flags let CI run without real AWS credentials
   skip_credentials_validation = true
