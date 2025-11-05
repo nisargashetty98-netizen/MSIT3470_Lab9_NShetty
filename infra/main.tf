@@ -1,3 +1,4 @@
+# Trigger CI test
 # Generate random hex to make bucket unique
 resource "random_id" "suffix" {
   byte_length = 2
